@@ -1,4 +1,4 @@
 package com.example.testapp.api
 
-class MovieService {
+class MovieRepo {
 }

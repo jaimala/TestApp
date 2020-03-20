@@ -1,4 +1,4 @@
 package com.example.testapp.repository
 
-class UserRepository {
+class LoginRepository {
 }
