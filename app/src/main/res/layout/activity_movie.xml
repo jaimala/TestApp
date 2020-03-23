@@ -4,17 +4,7 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
 
-        <variable
-            name="onClickListener"
-            type="android.view.View.OnClickListener" />
-
-        <variable
-            name="movieViewModel"
-            type="com.example.testapp.ui.movie.MovieViewModel" />
-
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
