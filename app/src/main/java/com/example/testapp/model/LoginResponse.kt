@@ -1,6 +1,5 @@
-package com.example.testapp.data
+package com.example.testapp.model
 
-import com.example.testapp.data.Login
 import com.google.gson.annotations.SerializedName
 
 /**

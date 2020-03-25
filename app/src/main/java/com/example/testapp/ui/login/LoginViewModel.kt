@@ -1,14 +1,12 @@
 package com.example.testapp.ui.login
 
 import android.app.Application
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.testapp.data.Resource.Data
+import com.example.testapp.model.Resource.Data
 
-import com.example.testapp.data.Resource.Error
-import com.example.testapp.data.LoginRequest
+import com.example.testapp.model.Resource.Error
+import com.example.testapp.model.LoginRequest
 
 import com.example.testapp.repository.LoginRepository
 
@@ -16,7 +14,7 @@ import com.example.testapp.repository.LoginRepository
 /**
  * ViewModel Class for Login View
  *
- * @property userRepository
+ * @property loginRepository
  */
  class LoginViewModel(private val loginRepository: LoginRepository, application: Application) :
     ViewModel() {
@@ -30,12 +28,6 @@ import com.example.testapp.repository.LoginRepository
     // Variable for Login Form data
     var login: LoginForm? = null
 
-    // Email On focus listener to handle validation
-    var emailOnFocusChangeListener: View.OnFocusChangeListener? = null
-
-    // Password on focus listener to handle validation
-    var passwordOnFocusChangeListener: View.OnFocusChangeListener? = null
-
     // LiveData for observing change in loginField i.e if all validations are passed value is set and observed
     val loginFields: MutableLiveData<LoginForm.LoginFields>?
         get() = login?.loginFields
@@ -45,14 +37,11 @@ import com.example.testapp.repository.LoginRepository
 
     }
 
-    /**
-     * Attempt to authenticate user
-     */
-    suspend fun authenticateUser() {
+      suspend fun authenticateUser(toString: Any, toString1: Any) {
 
         val email = loginFields?.value?.email
         val password = loginFields?.value?.password
-        if (email != null && password != null) {
+        if (!email.isNullOrBlank() && !password.isNullOrBlank() ) {
             val loginResult = loginRepository.login(
                 LoginRequest(
                     email,
@@ -60,32 +49,21 @@ import com.example.testapp.repository.LoginRepository
                 )
             )
             when (loginResult) {
-                is Data -> {
+                is Data<*> -> {
                     loginResult.data.let { loginResponse ->
                         when {
-                            loginResponse.responseCode == "Success" -> {
+                            responseStatus.equals("Success")  -> {
 
                                 responseStatus.postValue(true)
                             }
-                            else -> responseStatus.postValue(loginResponse.statusCode)
+                            else -> responseStatus.postValue(responseStatus)
                         }
                     }
                 }
-                is Error -> {
-
-
-
-                    }
                 }
             }
         }
 
-
-
-
-    /**
-     * Attempts to login
-     */
     fun onLoginClick() {
         login?.onClick()
     }

@@ -1,4 +1,4 @@
-package com.example.testapp.data
+package com.example.testapp.model
 
 /**
  * Network and cache data model

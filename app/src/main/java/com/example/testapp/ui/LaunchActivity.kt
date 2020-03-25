@@ -12,22 +12,12 @@ class LaunchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
 
-            // Get the text fragment instance
-            val loginFragment = LoginFragment()
+        // Get the text fragment instance
+        val loginFragment = LoginFragment()
 
-            // Get the support fragment manager instance
-            val manager : FragmentManager? = fragmentManager
-
-
-        // Begin the fragment transition using support fragment manager
-            val transaction = manager?.beginTransaction()
-
-            // Replace the fragment on container
-            transaction?.replace(R.id.fragment_login,loginFragment)
-            //transaction?.addToBackStack(null)
-
-            // Finishing the transition
-            transaction?.commit()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, loginFragment, "login")
+            .commit()
     }
 
 

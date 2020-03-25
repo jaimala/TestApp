@@ -2,8 +2,8 @@ package com.example.testapp.api
 
 
 
-import com.example.testapp.data.LoginResponse
-import com.example.testapp.data.LoginRequest
+import com.example.testapp.model.LoginResponse
+import com.example.testapp.model.LoginRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
 

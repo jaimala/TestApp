@@ -1,10 +1,13 @@
 package com.example.testapp.repository
 
 import com.example.testapp.api.ILoginRepo
-import com.example.testapp.data.LoginRequest
-import com.example.testapp.data.LoginResponse
-import com.example.testapp.data.Resource
+import com.example.testapp.model.LoginRequest
+import com.example.testapp.model.LoginResponse
+import com.example.testapp.model.Resource
 
+/**
+ * Repository Class for implementing all Login related services
+ */
 class LoginRepository {
 
     private val loginService: ILoginRepo = TODO()

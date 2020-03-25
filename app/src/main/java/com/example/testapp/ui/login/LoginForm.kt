@@ -1,12 +1,10 @@
 package com.example.testapp.ui.login
 
-import android.util.Patterns
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
-import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.MutableLiveData
 
-
+/**
+ * LoginForm Class handling all validation and values
+ */
 class LoginForm  {
     class LoginFields {
         var email: String? = null
@@ -17,11 +15,8 @@ class LoginForm  {
 
     val loginFields = MutableLiveData<LoginFields>()
 
-
     // method called from LoginViewModel on login button click
     fun onClick() {
-
-            loginFields.value = fields
-
+        loginFields.value = fields
     }
 }
